@@ -1,6 +1,9 @@
 package com.forohub.ForoHub.domain;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.validation.constraints.NotBlank;
+
+import java.time.LocalDate;
 
 public record DatosRegistroTopico(
         @NotBlank
@@ -10,6 +13,7 @@ public record DatosRegistroTopico(
         @NotBlank
         String autor,
         @NotBlank
-        String curso
+        String curso,
+        @JsonAlias({"fecha_de_creacion", "fechaDeCreacion"}) LocalDate fechaDeCreacion
 ) {
 }
