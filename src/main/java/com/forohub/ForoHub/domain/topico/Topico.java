@@ -1,7 +1,6 @@
-package com.forohub.ForoHub.domain;
+package com.forohub.ForoHub.domain.topico;
 
 import jakarta.persistence.*;
-import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

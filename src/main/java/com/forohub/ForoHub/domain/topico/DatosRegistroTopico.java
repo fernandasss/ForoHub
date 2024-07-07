@@ -1,4 +1,4 @@
-package com.forohub.ForoHub.domain;
+package com.forohub.ForoHub.domain.topico;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.validation.constraints.NotBlank;
