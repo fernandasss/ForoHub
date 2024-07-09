@@ -31,6 +31,7 @@ public class Topico {
         this.mensaje = datosRegistroTopico.mensaje();
         this.autor = datosRegistroTopico.autor();
         this.curso = datosRegistroTopico.curso();
+        this.fechaDeCreacion = LocalDateTime.now();
     }
 
     public void actualizarDatos(DatosActualizarTopico datosActualizarTopico){

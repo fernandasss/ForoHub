@@ -30,7 +30,7 @@ public class TopicoController {
     }
 
     @GetMapping
-    public ResponseEntity <Page<DatosListadoTopicos>> listadoTopicos(@PageableDefault(size = 5) Pageable paginacion){
+    public ResponseEntity <Page<DatosListadoTopicos>> listadoTopicos(@PageableDefault(size = 10) Pageable paginacion){
         return ResponseEntity.ok(topicoRepository.findByEstatusTrue(paginacion).map(DatosListadoTopicos::new));
     }
 

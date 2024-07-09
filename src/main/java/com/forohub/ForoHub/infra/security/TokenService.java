@@ -3,6 +3,8 @@ package com.forohub.ForoHub.infra.security;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
+import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.forohub.ForoHub.domain.usuarios.Usuario;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -30,8 +32,28 @@ public class TokenService {
             throw new RuntimeException("Error al generar token.");
         }
     }
+
     private Instant generarFechaExpiracion() {
         return LocalDateTime.now().plusHours(24).toInstant((ZoneOffset.of("-05:00")));
+    }
+
+    public String getSubject(String token) {
+        DecodedJWT verifier = null;
+        try {
+            Algorithm algorithm = Algorithm.HMAC256(secret);
+            verifier = JWT.require(algorithm)
+                    .withIssuer("ForoHub")
+                    .build()
+                    .verify(token);
+            verifier.getSubject();
+        } catch (JWTVerificationException exception) {
+            System.out.println(exception.toString());
+        }
+        if (verifier.getSubject() == null) {
+            throw new RuntimeException("Verifier inválido.");
+        }
+        return verifier.getSubject();
+
     }
 
 }
