@@ -18,6 +18,7 @@ Estas funcionalidades se realizan por medio de Http requests que pueden ser test
 * Validaciones realizadas según las reglas de negocio;
 * Implementación de una base de datos relacional para la persistencia de la información;
 * Servicio de autenticación/autorización para restringir el acceso a la información.
+* Interfaz gráfica de Swagger para documentar la API.
 
 <h3>Tecnologías usadas:</h3>
 
@@ -41,3 +42,4 @@ Estas funcionalidades se realizan por medio de Http requests que pueden ser test
 * MySQL Driver
 * Validation
 * Spring Security
+* SpringFox Swagger
